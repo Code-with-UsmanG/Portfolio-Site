@@ -1,20 +1,20 @@
 # 🚀 My Portfolio Website  
 
 **Author:** Usman Ghani  
-📍 **Live Demo:** [Visit My Portfolio](https://yourportfolio.com) *(Replace with your actual link)*  
+📍 **Live Demo:** [Visit My Portfolio](https://yourportfolio.com)
 
 ---
 
 ## 📌 About the Project  
-This is my **personal portfolio website** showcasing my skills, projects, and experience as a **developer & AI enthusiast**. It serves as a **professional profile** for recruiters, clients, and fellow developers to explore my work.
+This is my **Personal Portfolio Website** showcasing my skills, projects, and experience as a **Developer & AI Enthusiast**. It serves as a **Professional Profile** for recruiters, clients, and fellow developers to explore my work.
 
 ---
 
 ## 🛠 Tech Stack  
 - ✅ **Frontend:** HTML, CSS, JavaScript  
-- ✅ **Styling:** Bootstrap / Tailwind *(if applicable)*  
-- ✅ **Animations:** AOS / GSAP *(if applicable)*  
-- ✅ **Hosting:** GitHub Pages / Netlify / Vercel *(mention the platform you used)*  
+- ✅ **Styling:** Vanilla CSS (Custom-designed with global variables and media queries)  
+- ✅ **Animations:** Custom CSS Animations.
+- ✅ **Hosting:** GitHub Pages.
 
 ---
 
@@ -23,11 +23,6 @@ This is my **personal portfolio website** showcasing my skills, projects, and ex
 ✔️ **Smooth Animations** – Enhancing user experience.  
 ✔️ **Showcased Projects** – Featuring my top projects with descriptions and live demos.  
 ✔️ **Contact Section** – Easy way for visitors to reach out.  
-
----
-
-## 📸 Screenshots  
-*(Add images of your portfolio here to showcase your work.)*  
 
 ---
 
