@@ -1,0 +1,17 @@
+/* Favicon styling */
+link[rel="icon"],
+link[rel="shortcut icon"] {
+  border-radius: 50%;
+  background-color: transparent;
+  /* This won't affect the actual favicon in browser tabs, 
+     but will be useful if we use the same image elsewhere with this class */
+}
+
+/* Class for rounded images that can be used elsewhere */
+.rounded-icon {
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+  border: 2px solid var(--main-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+} 

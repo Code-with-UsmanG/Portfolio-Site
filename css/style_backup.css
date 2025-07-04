@@ -1,4 +1,4 @@
-/* ------------------------------------
+﻿/* ------------------------------------
 Fonts
 ----------------------------*/
 
@@ -28,7 +28,6 @@ Variables
 	--backdrop-filter-blur: blur(5px);
 	--webkit-backdrop-filter-blur: blur(5px);
 	--name-gradient: linear-gradient(135deg, #2563eb 0%, #6366f1 100%);
-	--text-gradient: linear-gradient(135deg, #2563eb 0%, #6366f1 100%);
 	--profile-shadow: 0 0 25px rgba(37, 99, 235, 0.5);
 	--profile-glow: 0 0 15px rgba(99, 102, 241, 0.8);
 	
@@ -68,7 +67,6 @@ Variables
 	--nav-border: rgba(30, 41, 59, 0.6);
 	--shadow-color: rgba(0, 0, 0, 0.2);
 	--name-gradient: linear-gradient(135deg, #60a5fa 0%, #818cf8 100%);
-	--text-gradient: linear-gradient(135deg, #60a5fa 0%, #818cf8 100%);
 	--profile-shadow: 0 0 25px rgba(96, 165, 250, 0.5);
 	--profile-glow: 0 0 15px rgba(129, 140, 248, 0.8);
 	--text-color: var(--blue-dark);
@@ -159,11 +157,11 @@ section {
 
 section.active {
 	display: block;
-	animation: fadeIn 0.7s cubic-bezier(0.4,0,0.2,1) forwards;
+	animation: fadeIn 0.5s ease-in-out forwards;
 }
 
 section.fade-out {
-	animation: fadeOut 0.7s cubic-bezier(0.4,0,0.2,1) forwards;
+	animation: fadeOut 0.5s ease-in-out forwards;
 }
 
 .main {
@@ -440,12 +438,9 @@ Overlay Section
 	background-color: transparent;
 	z-index: 200;
 	visibility: hidden;
-	transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1);
-	opacity: 0;
 }
 
 .overlay.active {
-	opacity: 1;
 	visibility: visible;
 }
 
@@ -544,19 +539,19 @@ Header Section
 	-webkit-backdrop-filter: blur(10px);
 	border: 1px solid var(--nav-border);
 	border-radius: 0 0 4px 4px;
-	padding: 10px 30px;
+	padding: 15px 30px;
 	box-shadow: 0 8px 30px var(--shadow-color);
 }
 
 .header .nav ul li {
-	margin: 0 8px;
+	margin: 0 12px;
 }
 
 .header .nav ul li a {
-	font-size: 15px;
+	font-size: 16px;
 	color: var(--text-color);
 	font-weight: 600;
-	padding: 5px 10px;
+	padding: 6px 12px;
 	transition: color 0.3s ease;
 	position: relative;
 }
@@ -569,7 +564,7 @@ Header Section
 .header .nav ul li a::after {
 	content: '';
 	position: absolute;
-	bottom: -1px;
+	bottom: -2px;
 	left: 0;
 	width: 0;
 	height: 2px;
@@ -580,28 +575,21 @@ Header Section
 .header .nav ul li a:hover::after,
 .header .nav ul li a.active::after {
 	width: 100%;
-	height: 3px;
-	background: linear-gradient(90deg, var(--main-color), var(--accent));
-	border-radius: 2px;
-}
-
-.header .nav ul li a.active {
-	position: relative;
 }
 
 @media(max-width:991px) {
 	.header .nav ul {
-		padding: 8px 25px;
+		padding: 12px 25px;
 		border-radius: 0 0 3px 3px;
 		background-color: var(--nav-bg);
 		backdrop-filter: blur(10px);
 		-webkit-backdrop-filter: blur(10px);
 		border: 1px solid var(--nav-border);
 		box-shadow: 0 8px 30px var(--shadow-color);
-}
+	}
 	.header .nav ul li {
 		margin: 0 8px;
-}
+	}
 	.header .nav ul li a {
 		font-size: 15px;
 		padding: 5px 10px;
@@ -614,32 +602,30 @@ Header Section
 	left: 0;
 	top: 0;
 	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.5);
-	display: flex;
-	justify-content: center;
-	align-items: center;
+		height: 100%;
+		background-color: transparent;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	visibility: hidden;
-	opacity: 0;
-	z-index: -1;
-	transition: all 0.3s ease;
+		opacity: 0;
+		z-index: -1;
+		transition: all 0.3s ease;
 }
 	.header .nav.active {
 	visibility: visible;
-	opacity: 1;
-	z-index: 1;
+		opacity: 1;
+		z-index: 1;
 	}
 	.header .nav ul {
 		flex-direction: column;
 		padding: 25px;
-		border-radius: 10px;
+		border-radius: 0 0 3px 3px;
 		background-color: var(--nav-bg);
 		backdrop-filter: blur(10px);
 		-webkit-backdrop-filter: blur(10px);
 		border: 1px solid var(--nav-border);
 		box-shadow: 0 8px 30px var(--shadow-color);
-		width: 80%;
-		max-width: 300px;
 }
 	.header .nav ul li {
 		margin: 8px 0;
@@ -647,88 +633,17 @@ Header Section
 	.header .nav ul li a {
 		font-size: 18px;
 		display: block;
-		text-align: center;
+	text-align: center;
 		padding: 8px 15px;
 	}
 	.header .nav-toggler {
-		display: flex;
+	display: block;
 		margin-right: 0;
 		position: fixed;
 		right: 15px;
 		top: 15px;
-		z-index: 10;
-		box-shadow: 0 2px 10px var(--shadow-color);
-	}
+		z-index: 2;
 }
-
-.header .nav-toggler {
-	height: 34px;
-	width: 44px;
-	background-color: var(--card-bg);
-	border: 1px solid var(--card-border);
-	cursor: pointer;
-	border-radius: 5px;
-	display: none;
-	align-items: center;
-	justify-content: center;
-	position: relative;
-	z-index: 3;
-	margin-right: 15px;
-	transition: all 0.3s ease;
-}
-
-.header .nav-toggler:hover {
-	background-color: var(--section-bg);
-	box-shadow: 0 4px 8px var(--shadow-color);
-}
-
-.header .nav-toggler span {
-	height: 2px;
-	width: 24px;
-	background-color: var(--text-color);
-	position: relative;
-	display: inline-block;
-	transition: background-color 0.3s ease;
-}
-
-.header .nav-toggler.active span {
-	background-color: transparent;
-}
-
-.header .nav-toggler span::before,
-.header .nav-toggler span::after {
-	content: '';
-	position: absolute;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: var(--text-color);
-	transition: all 0.3s ease;
-}
-
-.header .nav-toggler span::before {
-	top: -8px;
-}
-
-.header .nav-toggler span::after {
-	top: 8px;
-}
-
-.header .nav-toggler.active span::before {
-	transform: rotate(45deg);
-	top: 0;
-}
-
-.header .nav-toggler.active span::after {
-	transform: rotate(-45deg);
-	top: 0;
-}
-
-@media(max-width:767px) {
-	.header .nav-toggler {
-		display: flex;
-		margin-left: auto;
-	}
 }
 
 
@@ -784,7 +699,6 @@ Home Section
 	margin: 0 0 15px;
 	background: var(--name-gradient);
 	-webkit-background-clip: text;
-	background-clip: text;
 	-webkit-text-fill-color: transparent;
 	opacity: 0;
 	animation: fadeInUp 1s ease forwards;
@@ -845,7 +759,7 @@ Home Section
 .home-img .img-box {
 	max-width: 360px;
 	margin: auto;
-    border-radius: 50%;
+	border-radius: 50%;
 	overflow: hidden;
 	border: 8px solid var(--card-bg);
 	position: relative;
@@ -854,17 +768,17 @@ Home Section
 	animation: fadeInRight 1s ease forwards, floatAnimation 4s ease-in-out infinite;
 	animation-delay: 1s;
 	aspect-ratio: 1/1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	padding: 0;
 }
 
 .home-img .img-box img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    transition: transform 0.5s ease;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	transition: transform 0.5s ease;
 	object-fit: cover;
 	object-position: center top;
 	transform: scale(1);
@@ -882,7 +796,7 @@ Home Section
 	}
 }
 
-@keyframes fadeIn {
+@keyframes fadeInUp {
 	0% {
 		opacity: 0;
 		transform: translateY(30px);
@@ -1276,27 +1190,6 @@ Portfolio Section
     transition: transform 0.5s ease;
 }
 
-/* Special styling for Lumina portrait image */
-.portfolio-item-thumbnail img[src*="Lumina1-portrait.png"] {
-    object-fit: contain; /* Show the whole image without cropping */
-    padding: 10px; /* Add some padding to prevent image from touching the borders */
-    background-color: var(--card-bg);
-}
-
-/* Special styling for ULearn portrait image */
-.portfolio-item-thumbnail img[src*="ULearn_SD-portrait.png"] {
-    object-fit: contain; /* Show the whole image without cropping */
-    padding: 10px; /* Add some padding to prevent image from touching the borders */
-    background-color: var(--card-bg);
-}
-
-/* Special styling for Calculator portrait image */
-.portfolio-item-thumbnail img[src*="Calculator1-portrait.png"] {
-    object-fit: contain; /* Show the whole image without cropping */
-    padding: 10px; /* Add some padding to prevent image from touching the borders */
-    background-color: var(--card-bg);
-}
-
 .portfolio-item-thumbnail:hover img {
     transform: scale(1.05);
 }
@@ -1640,9 +1533,7 @@ Certifications Section
 	text-overflow: ellipsis;
 	display: -webkit-box;
 	-webkit-line-clamp: 2;
-	line-clamp: 2;
 	-webkit-box-orient: vertical;
-	box-orient: vertical;
 }
 
 .certification-details .platform {
@@ -1667,8 +1558,8 @@ Certifications Section
 	overflow: hidden;
 	text-overflow: ellipsis;
 	display: -webkit-box;
-	-webkit-line-clamp: 3;
-	line-clamp: 3;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
 	font-size: 14px;
 	line-height: 1.5;
 }
@@ -1718,11 +1609,11 @@ Certifications Section
 	left: 0;
 	right: 0;
 	height: 100%;
-	background: linear-gradient(135deg, var(--section-bg), var(--card-bg));
+	background: linear-gradient(135deg, var(--card-bg), var(--nav-bg));
 	border-radius: 20px;
 	z-index: -1;
 	box-shadow: 0 5px 20px var(--shadow-color);
-	border: 1px solid var(--section-border);
+	border: 1px solid var(--card-border);
 }
 
 .company-tabs::after {
@@ -1766,7 +1657,7 @@ Certifications Section
 	flex-direction: column;
 	position: relative;
 	overflow: hidden;
-	backdrop-filter: var(--backdrop-filter-blur);
+	backdrop-filter: blur(5px);
 }
 
 .company-tab::before {
@@ -1776,7 +1667,7 @@ Certifications Section
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: linear-gradient(135deg, var(--card-bg), transparent);
+	background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
 	z-index: -1;
 }
 
@@ -1785,7 +1676,7 @@ Certifications Section
 	position: absolute;
 	width: 30px;
 	height: 200%;
-	background: var(--white-alpha-25);
+	background: rgba(255, 255, 255, 0.2);
 	top: -50%;
 	left: -100px;
 	transform: rotate(35deg);
@@ -1797,19 +1688,21 @@ Certifications Section
 }
 
 .company-tab img {
-	width: 48px;
-	height: 48px;
+	width: 55px;
+	height: 55px;
 	border-radius: 50%;
-	object-fit: cover;      /* Ensures the image fills the circle */
-	background: #fff;
-	padding: 0;             /* Remove padding to avoid shrinking the image */
-	box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+	margin-bottom: 12px;
+	object-fit: contain;
+	background-color: var(--white);
+	padding: 8px;
+	box-shadow: 0 8px 20px var(--shadow-color);
+	transition: all 0.4s ease;
 }
 
 .company-tab span {
 	font-size: 15px;
 	font-weight: 600;
-	color: var(--blue-dark);
+	color: var(--text-color);
 	transition: all 0.3s ease;
 	position: relative;
 }
@@ -1831,7 +1724,7 @@ Certifications Section
 }
 
 .company-tab:hover {
-	background-color: var(--section-bg);
+	background-color: var(--nav-bg);
 	transform: translateY(-8px) scale(1.05);
 	box-shadow: 0 15px 30px var(--shadow-color);
 }
@@ -1846,8 +1739,7 @@ Certifications Section
 	border-color: transparent;
 	color: var(--white);
 	transform: translateY(-5px);
-	box-shadow: 0 15px 30px var(--shadow-color);
-	border-bottom: 2px solid var(--main-color); /* underline only when active */
+	box-shadow: 0 15px 30px rgba(37, 99, 235, 0.25);
 }
 
 .company-tab.active::after {
@@ -1908,85 +1800,55 @@ Certifications Section
 
 @media(max-width:767px) {
 	.company-tabs {
-		display: flex;
-		flex-wrap: nowrap;
-		overflow-x: auto;
-		padding: 15px;
-		gap: 12px;
-		justify-content: flex-start;
-		-webkit-overflow-scrolling: touch;
-		scroll-behavior: smooth;
-		scrollbar-width: none;
-		background: transparent;
-		border: none;
-		box-shadow: none;
-	}
-	
-	.company-tabs::before,
-	.company-tabs::after {
-		display: none;
-	}
-	
-	.company-tabs::-webkit-scrollbar {
-		display: none;
+		gap: 10px;
+		padding: 10px 5px;
 	}
 	
 	.company-tab {
-		min-width: 80px;
-		max-width: 80px;
-		height: 100px;
+		min-width: 90px;
 		padding: 10px;
-		flex: 0 0 auto;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		background-color: var(--card-bg);
-		border: 1px solid var(--card-border);
-		border-radius: 10px;
-		box-shadow: 0 4px 8px var(--shadow-color);
-		transition: all 0.3s ease;
-		position: relative;
-		overflow: hidden;
-	}
-	
-	.company-tab img {
-		width: 40px;
-		height: 40px;
-		border-radius: 8px;
-		object-fit: contain;
-		margin-bottom: 8px;
-		transition: transform 0.3s ease;
 	}
 	
 	.company-tab span {
 		font-size: 12px;
-		font-weight: 500;
-		text-align: center;
-		color: var(--text-color);
-		transition: color 0.3s ease;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		width: 100%;
 	}
 	
-	.company-tab.active {
-		background-color: var(--main-color);
-		border-color: var(--main-color);
-		transform: translateY(-5px);
-	}
-	
-	.company-tab.active img {
-		transform: scale(1.1);
-	}
-	
-	.company-tab.active span {
-		color: var(--white);
+	.company-tab img {
+		width: 35px;
+		height: 35px;
+		margin-bottom: 8px;
 	}
 	
 	.company-tab:hover {
-		transform: translateY(-5px);
+		transform: translateY(-5px) scale(1.03);
+	}
+}
+
+@media(max-width:575px) {
+	.company-tabs {
+		flex-wrap: nowrap;
+		overflow-x: auto;
+		padding: 10px 5px;
+		justify-content: flex-start;
+		-webkit-overflow-scrolling: touch;
+		scroll-behavior: smooth;
+		scrollbar-width: none; /* Firefox */
+	}
+	
+	.company-tabs::-webkit-scrollbar {
+		display: none; /* Chrome, Safari, Opera */
+	}
+	
+	.company-tab {
+		min-width: 80px;
+		flex: 0 0 auto;
+		padding: 8px;
+	}
+	
+	.company-tab img {
+		width: 30px;
+		height: 30px;
+		margin-bottom: 6px;
 	}
 }
 
@@ -2004,6 +1866,8 @@ Certifications Section
 	margin: 15px 0;
 	box-sizing: border-box;
 	height: 220px;
+	width: 100%; /* Ensure full width */
+	padding: 0; /* Remove any padding that might be affecting width */
 }
 
 @media(min-width: 768px) {
@@ -2011,6 +1875,8 @@ Certifications Section
 		flex: 0 0 100%;
 		max-width: 100%;
 		height: 220px;
+		width: 100%; /* Ensure full width */
+		padding: 0; /* Remove any padding that might be affecting width */
 	}
 }
 
@@ -2019,31 +1885,35 @@ Certifications Section
 		flex: 0 0 100%;
 		max-width: 100%;
 		height: 220px;
+		width: 100%; /* Ensure full width */
+		padding: 0; /* Remove any padding that might be affecting width */
 	}
 }
 
 /* Company Content */
 .company-content {
 	display: none;
-	width: 100%;
+	padding: 0;
 }
 
 .company-description {
-	text-align: center;
 	margin-bottom: 30px;
-	padding: 0 15px;
+	text-align: center;
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .company-description h3 {
 	font-size: 24px;
-	margin-bottom: 10px;
-	color: var(--main-color);
+	margin-bottom: 15px;
+	color: var(--text-color);
 }
 
 .company-description p {
-	color: var(--secondary);
-	max-width: 600px;
-	margin: 0 auto;
+	color: var(--text-color);
+	line-height: 1.6;
+	margin-bottom: 20px;
 }
 
 /* Certificate Popup */
@@ -2076,13 +1946,13 @@ Certifications Section
 }
 
 .certificate-popup-content {
-	background-color: var(--white-alpha-25);
+	background-color: var(--card-bg);
 	border-radius: 12px;
 	padding: 30px;
 	max-width: 900px;
 	width: 100%;
-	border: 1px solid var(--white-alpha-40);
-	backdrop-filter: var(--webkit-backdrop-filter-blur);
+	border: 1px solid var(--card-border);
+	backdrop-filter: var(--backdrop-filter-blur);
 	opacity: 0;
 	transform: scale(0.9);
 	animation: fadeInScale 0.5s ease forwards;
@@ -2110,8 +1980,9 @@ Certifications Section
 	justify-content: center;
 	border-radius: 50%;
 	cursor: pointer;
-	color: var(--blue-dark);
-	background-color: var(--white-alpha-25);
+	color: var(--text-color);
+	background-color: var(--card-bg);
+	border: 1px solid var(--card-border);
 	transition: all 0.3s ease;
 }
 
@@ -2126,7 +1997,7 @@ Certifications Section
 	border-radius: 8px;
 	margin-top: 20px;
 	text-align: center;
-	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 5px 15px var(--shadow-color);
 }
 
 .certificate-popup-img {
@@ -2165,8 +2036,6 @@ Certifications Section
 	.certification-logo {
 		margin-right: 0;
 		margin-bottom: 15px;
-		margin-left: auto;
-		margin-right: auto;
 	}
 	
 	.certification-details .cert-buttons {
@@ -2175,7 +2044,6 @@ Certifications Section
 	
 	.certification-details .description {
 		-webkit-line-clamp: 3;
-		line-clamp: 3;
 	}
 	
 	.company-content .certification-item {
@@ -2183,103 +2051,6 @@ Certifications Section
 		max-width: 100%;
 		height: auto;
 		min-height: 300px;
-	}
-	
-	/* Enhanced company tabs for mobile */
-	.company-tabs {
-		gap: 15px;
-		padding: 15px 10px;
-		width: 100%;
-		max-width: 100%;
-		margin-left: auto;
-		margin-right: auto;
-		justify-content: center;
-		overflow-x: auto;
-		-webkit-overflow-scrolling: touch;
-		scroll-behavior: smooth;
-		scrollbar-width: none;
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-	}
-	
-	.company-tabs::-webkit-scrollbar {
-		display: none;
-	}
-	
-	.company-tab {
-		min-width: 90px;
-		padding: 12px 8px;
-		flex: 0 0 auto;
-		border-radius: 12px;
-		box-shadow: 0 5px 15px var(--shadow-color);
-		transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-		position: relative;
-		overflow: hidden;
-		background: linear-gradient(135deg, var(--card-bg), var(--section-bg));
-		border: 1px solid var(--card-border);
-	}
-	
-	.company-tab::before {
-		content: '';
-		position: absolute;
-		top: -2px;
-		left: -2px;
-		right: -2px;
-		bottom: -2px;
-		background: linear-gradient(45deg, var(--main-color), var(--accent), transparent);
-		border-radius: 14px;
-		z-index: -1;
-		opacity: 0;
-		transition: opacity 0.3s ease;
-	}
-	
-	.company-tab span {
-		font-size: 13px;
-		font-weight: 600;
-		margin-top: 8px;
-		background: var(--text-gradient);
-		-webkit-background-clip: text;
-		background-clip: text;
-		color: transparent;
-		text-shadow: 0px 0px 1px rgba(0,0,0,0.1);
-	}
-	
-	.company-tab img {
-		width: 42px;
-		height: 42px;
-		margin-bottom: 10px;
-		border-radius: 50%;
-		padding: 6px;
-		background-color: var(--white-alpha-25);
-		box-shadow: 0 5px 10px var(--shadow-color);
-		transition: all 0.4s ease;
-	}
-	
-	.company-tab:hover {
-		transform: translateY(-8px);
-	}
-	
-	.company-tab:hover img {
-		transform: scale(1.15);
-	}
-	
-	.company-tab:hover::before {
-		opacity: 0.5;
-	}
-	
-	.company-tab.active {
-		transform: translateY(-8px);
-		background: linear-gradient(135deg, var(--main-color), var(--accent));
-	}
-	
-	.company-tab.active img {
-		background-color: var(--white);
-		transform: scale(1.15);
-	}
-	
-	.company-tab.active span {
-		color: var(--white);
-		text-shadow: 0px 1px 2px rgba(0,0,0,0.2);
 	}
 }
 
@@ -2295,26 +2066,6 @@ Certifications Section
 		margin: 10px 0;
 		height: auto;
 		min-height: 300px;
-	}
-	
-	.company-tabs {
-		padding: 10px;
-		gap: 10px;
-	}
-	
-	.company-tab {
-		min-width: 70px;
-		max-width: 70px;
-		height: 90px;
-	}
-	
-	.company-tab img {
-		width: 35px;
-		height: 35px;
-	}
-	
-	.company-tab span {
-		font-size: 11px;
 	}
 }
 
@@ -2913,8 +2664,6 @@ Awards Section
     margin-right: 20px;
 }
 
-
-
 .home-buttons .btn:first-child::before {
     background-color: var(--white);
 }
@@ -2928,22 +2677,20 @@ Awards Section
     background: none;
     border: none;
     cursor: pointer;
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
+    font-size: 18px;
     color: var(--text-color);
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
-    margin-left: 8px;
-    margin-top: -1px;
+    margin-left: 10px;
     background-color: var(--card-bg);
     border: 1px solid var(--card-border);
-    transform: translateY(-1px);
 }
 
 .theme-toggle:hover {
@@ -2972,39 +2719,7 @@ Awards Section
     .theme-toggle {
         position: fixed;
         top: 15px;
-        right: 65px; /* Adjust this value to match the width + margin of .nav-toggler */
-        z-index: 11;
-        margin: 0;
-        box-shadow: 0 2px 10px var(--shadow-color);
-    }
-    .header .nav-toggler {
-        position: fixed;
-        top: 15px;
-        right: 15px;
-        z-index: 12;
-        margin: 0;
-        box-shadow: 0 2px 10px var(--shadow-color);
-    }
-}
-
-@media (max-width: 767px) {
-    .header .row {
-        justify-content: flex-end;
-        padding-right: 18px;
-        padding-left: 18px;
-    }
-    .theme-toggle,
-    .header .nav-toggler {
-        position: static !important;
-        top: auto !important;
-        right: auto !important;
-        margin: 8px 0 0 10px; /* <-- Move down slightly (was 0 0 0 10px) */
-        box-shadow: 0 2px 10px var(--shadow-color);
-    }
-    .theme-toggle {
-        z-index: 2;
-    }
-    .header .nav-toggler {
+        right: 60px;
         z-index: 2;
     }
 }
@@ -3016,111 +2731,4 @@ Awards Section
 
 .theme-transition * {
     transition: background-image 0.5s ease, color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease !important;
-}
-
-/* Institute of Management certification cards - Mobile fixes */
-#institute-certifications .certification-item {
-    height: auto;
-    min-height: 220px;
-}
-
-#institute-certifications .certification-details .platform {
-    white-space: normal;
-    overflow: visible;
-    text-overflow: clip;
-    line-height: 1.3;
-    margin-bottom: 8px;
-}
-
-@media(max-width:767px) {
-    #institute-certifications .certification-item {
-        padding: 25px;
-        min-height: 350px;
-    }
-    
-    #institute-certifications .certification-logo {
-        margin-left: auto;
-        margin-right: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    #institute-certifications .certification-details .platform {
-        font-size: 14px;
-        margin-bottom: 10px;
-    }
-    
-    #institute-certifications .certification-details h3 {
-        font-size: 17px;
-        -webkit-line-clamp: 2;
-        line-clamp: 2;
-        margin-bottom: 8px;
-    }
-    
-    #institute-certifications .certification-details .description {
-        -webkit-line-clamp: 4;
-        line-clamp: 4;
-        font-size: 14px;
-        line-height: 1.4;
-    }
-    
-    #institute-certifications .certification-details .cert-buttons {
-        flex-direction: column;
-        gap: 8px;
-    }
-    
-    #institute-certifications .certification-details .cert-buttons .btn {
-        width: 100%;
-        padding: 7px 10px;
-        font-size: 13px;
-    }
-}
-
-/* Custom styles for UDO portfolio item */
-.portfolio-item-thumbnail img[src*="TicTacToe2.png"] {
-    object-fit: contain;
-    padding: 10px;
-    background-color: var(--card-bg);
-}
-
-/* Custom styles for UDO portfolio item */
-.portfolio-item-thumbnail img[src*="UDO1.png"] {
-    object-fit: contain;
-    padding: 10px;
-    background-color: var(--card-bg);
-}
-
-/* Custom styles for Sonic portfolio item */
-.portfolio-item-thumbnail img[src*="Sonic1.png"] {
-    object-fit: contain;
-    padding: 10px;
-    background-color: var(--card-bg);
-}
-
-/* Custom styles for Snappy portfolio item */
-.portfolio-item-thumbnail img[src*="Snappy1.png"] {
-    object-fit: contain;
-    padding: 10px;
-    background-color: var(--card-bg);
-}
-
-/* Custom styles for Spendly portfolio item */
-.portfolio-item-thumbnail img[src*="Spendly1.png"] {
-    object-fit: contain;
-    padding: 10px;
-    background-color: var(--card-bg);
-}
-
-@media (max-width: 767px) {
-    .pp-gallery {
-        flex-direction: column;
-        gap: 10px;
-        align-items: stretch;
-    }
-    .pp-gallery img {
-        width: 100%;
-        height: 100%;
-        margin-bottom: 0;
-    }
 }

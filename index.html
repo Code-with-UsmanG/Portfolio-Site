@@ -4,8 +4,51 @@
       <title> Usman Ghani - My Portfolio </title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      
+      <!-- Favicon -->
+      <link rel="icon" href="usmanghani.png" type="image/png" sizes="32x32">
+      <link rel="apple-touch-icon" href="usmanghani.png">
+      <link rel="manifest" href="favicon/site.webmanifest">
+      
+      <!-- Stylesheets -->
       <link rel="stylesheet" href="css/font-awesome.css">
       <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="css/favicon.css">
+      
+      <!-- Favicon enhancement script -->
+      <script type="text/javascript">
+         // This script creates a canvas-based rounded favicon
+         document.addEventListener('DOMContentLoaded', function() {
+            const faviconLink = document.querySelector('link[rel="icon"]');
+            const img = new Image();
+            img.src = faviconLink.href;
+            
+            img.onload = function() {
+               const canvas = document.createElement('canvas');
+               const size = 32; // Standard favicon size
+               canvas.width = size;
+               canvas.height = size;
+               const ctx = canvas.getContext('2d');
+               
+               // Create circular clipping path
+               ctx.beginPath();
+               ctx.arc(size/2, size/2, size/2, 0, Math.PI * 2, true);
+               ctx.closePath();
+               ctx.clip();
+               
+               // Draw the image with enhanced contrast
+               ctx.drawImage(img, 0, 0, size, size);
+               
+               // Apply a subtle border
+               ctx.strokeStyle = '#2563eb';
+               ctx.lineWidth = 2;
+               ctx.stroke();
+               
+               // Update favicon with the new rounded version
+               faviconLink.href = canvas.toDataURL('image/png');
+            };
+         });
+      </script>
    </head>
    <!-- PG Start -->
    <div class="page-loader">
@@ -31,41 +74,62 @@
          <!-- Header Start -->
          <header class="header">
             <div class="container">
-               <div class="row flex-end">
-                  <button type="button" class="nav-toggler">
-                  <span></span>
-                  </button>
+               <div class="row">
                   <div class="nav">
-                     <div class="nav-inner">
                         <ul>
                            <li><a href="#home" class="nav-item link-item">Home</a></li>
                            <li><a href="#about" class="nav-item link-item">About</a></li>
                            <li><a href="#portfolio" class="nav-item link-item">Portfolio</a></li>
+                           <li><a href="#certifications" class="nav-item link-item">Certifications</a></li>
+                           <li><a href="#hackathons" class="nav-item link-item">Hackathons</a></li>
+                           <li><a href="#awards" class="nav-item link-item">Awards</a></li>
                            <li><a href="#contact" class="nav-item link-item">Contact</a></li>
                         </ul>
-                     </div>
                   </div>
+                  <!-- Move theme-toggle button here, before nav-toggler -->
+                  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+                     <i class="fas fa-moon"></i>
+                     <i class="fas fa-sun"></i>
+                  </button>
+                  <button class="nav-toggler" aria-label="Toggle Navigation">
+                     <span></span>
+                  </button>
                </div>
             </div>
          </header>
          <!-- Header End -->
          <!--Home Section Start -->
-         <section class="home-section align-items-center" id="home">
+         <section class="home-section align-items-center active" id="home">
             <div class="container">
                <div class="row align-items-center">
                   <div class="home-text">
                      <p>Hello, I'm</p>
                      <h1>Usman Ghani</h1>
-                     <h2>Computer Scientist' 2027</h2>
-                     <a href="#about" class="btn link-item">About Me</a>
-                     <a href="#portfolio" class="btn link-item">Portfolio</a>
+                     <h2 class="dynamic-text">
+                        <span class="text-content"></span>
+                        <span class="cursor">|</span>
+                     </h2>
+                     <div class="home-buttons">
+                        <a href="#about" class="btn link-item nav-item">About Me</a>
+                        <a href="#portfolio" class="btn link-item nav-item">Portfolio</a>
+                     </div>
                   </div>
                   <div class="home-img">
                      <div class="img-box">
-                        <img src="img/my-avatar.jpg" alt="profile-img">
+                        <img src="img/my-avatar.png" alt="profile-img">
                      </div>
                   </div>
                </div>
+            </div>
+            
+            <!-- Floating particles for modern effect -->
+            <div class="particles">
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
             </div>
          </section>
          <!--Home Section End -->
@@ -80,16 +144,16 @@
       <div class="row">
          <div class="about-img">
             <div class="img-box">
-               <img src="img/about-avatar.png" alt="about-img">
+               <img src="img/my-avatar.png" alt="about-img">
             </div>
          </div>
          <div class="about-text">
             <p>
-               Hey there! I’m Usman, a passionate Computer Science student, AI enthusiast, and full-stack developer.
+               Hey there! I'm Usman, a passionate Computer Science student, AI enthusiast, and full-stack developer.
                I specialize in building intelligent applications, from AI-driven Android apps to full-stack web solutions. 
                With expertise in Kotlin, Python, JavaScript, and MySQL, I bridge the gap between technology and real-world innovation.  
                My focus is on AI-powered solutions, data-driven applications, and creating scalable digital products.  
-               Let’s connect and innovate together!
+               Let's connect and innovate together!
             </p>
             <h3>Skills</h3>
             <div class="skills">
@@ -104,7 +168,6 @@
             <div class="about-tabs">
                <button type="button" class="tab-item active" data-target="#education">Education</button>
                <button type="button" class="tab-item" data-target="#experience">Experience</button>
-               <button type="button" class="tab-item" data-target="#certifications">Certifications</button>               
             </div>
             <!-- Education Section Start -->
             <div class="tab-content active" id="education">
@@ -148,27 +211,6 @@
                </div>
             </div>
             <!-- Experience Section End -->
-            <!-- Certifications Section Start -->
-<div class="tab-content" id="certifications">
-   <div class="timeline">
-      <div class="timeline-item">
-         <span class="date">2024</span>
-         <h4>Responsive Web Design - <span>freeCodeCamp</span></h4>
-         <p>Mastered modern web development, focusing on responsive layouts using HTML and CSS.</p>
-      </div>
-      <div class="timeline-item">
-         <span class="date">2024</span>
-         <h4>JavaScript Algorithms and Data Structures - <span>freeCodeCamp</span></h4>
-         <p>Developed expertise in JavaScript fundamentals, ES6, and algorithmic problem-solving.</p>
-      </div>
-      <div class="timeline-item">
-         <span class="date">2024</span>
-         <h4>Data Analytics & Visualization - <span>Accenture (Forage)</span></h4>
-         <p>Learned data manipulation, visualization, and analytics using Excel, SQL, and Power BI.</p>
-      </div>
-   </div>
-</div>
-<!-- Certifications Section End -->
 
             <a href="https://drive.google.com/file/d/13PuFHqZL3oE4aeCQjOpbanKIe9DfrkJX/view?usp=sharing" target="_blank" class="btn">Download CV</a>
             <a href="#contact" class="btn link-item">Contact Me</a>
@@ -188,9 +230,9 @@
                </div>
                <div class="row">
                   <!-- Portfolio Item Start-->
-                  <div class="portfolio-item">
+                  <div class="portfolio-item" data-gallery-images="img/portfolio/ULearn/ULearn_LS-portrait.png,img/portfolio/ULearn/ULearn_ACM-portrait.png,img/portfolio/ULearn/ULearn_IS-portrait.png">
                      <div class="portfolio-item-thumbnail">
-                        <img src="img/portfolio/Ulearn.png" alt="portfolio item thumb">
+                        <img src="img/portfolio/ULearn/ULearn_SD-portrait.png" alt="portfolio item thumb">
                      </div>
                      <h3 class="portfolio-item-title">ULearn</h3>
                      <button type="button" class="btn view-project-btn">View Project</button>
@@ -211,31 +253,31 @@
                   </div>
                   <!-- Portfolio Item End-->
                   <!-- Portfolio Item Start-->
-                  <div class="portfolio-item">
+                  <div class="portfolio-item" data-gallery-images="img/portfolio/Snappy/Snappy1.png,img/portfolio/Snappy/Snappy2.png,img/portfolio/Snappy/Snappy3.png">
                      <div class="portfolio-item-thumbnail">
-                        <img src="img/portfolio/Snappy.png" alt="portfolio item thumb">
+                        <img src="img/portfolio/Snappy/Snappy1.png" alt="portfolio item thumb">
                      </div>
                      <h3 class="portfolio-item-title">Snappy</h3>
                      <button type="button" class="btn view-project-btn">View Project</button>
                      <div class="portfolio-item-details">
                         <div class="description">
-                           <p>Snappy is a hybrid social media app integrating Firebase and Supabase for real-time interactions and media sharing.</p>
+                           <p>Snappy is a feature-rich social media app for Android that enables users to share photos, chat in real time, and connect with friends. It offers a modern UI, and seamless media uploads. Built with Kotlin, Firebase, Supabase and Jetpack Compose for a fast and interactive experience.</p>
                         </div>
                         <div class="general-info">
                            <ul>
                               <li>Created - <span>12/02/2025</span></li>
-                              <li>Technology - <span>Kotlin, Firebase, Supabase</span></li>
-                              <li>Role - <span>Lead Developer</span></li>
-                              <li>Learn More - <span><a href="#" target="_blank">Github Repository</a></span></li>
+                              <li>Technology - <span>Kotlin, Jetpack Compose, Firebase, Supabase</span></li>
+                              <li>Role - <span>Lead Android Developer</span></li>
+                              <li>Learn More - <span><a href="https://github.com/Code-with-UsmanG/Snappy" target="_blank">Github Repository</a></span></li>
                            </ul>
                         </div>
                      </div>
                   </div>
                   <!-- Portfolio Item End-->
                   <!-- Portfolio Item Start-->
-                  <div class="portfolio-item">
+                  <div class="portfolio-item" data-gallery-images="img/portfolio/Lumina/Lumina2-portrait.png,img/portfolio/Lumina/Lumina3-portrait.png,img/portfolio/Lumina/Lumina4-portrait.png">
                      <div class="portfolio-item-thumbnail">
-                        <img src="img/portfolio/Lumina.png" alt="portfolio item thumb">
+                        <img src="img/portfolio/Lumina/Lumina1-portrait.png" alt="portfolio item thumb">
                      </div>
                      <h3 class="portfolio-item-title">Lumina</h3>
                      <button type="button" class="btn view-project-btn">View Project</button>
@@ -247,7 +289,7 @@
                            <ul>
                               <li>Created - <span>06/02/2025</span></li>
                               <li>Technology - <span>Kotlin, Gemini API</span></li>
-                              <li>Role - <span>Backend Developer</span></li>
+                              <li>Role - <span>Lead Android Developer</span></li>
                               <li>Learn More - <span><a href="#" target="_blank">Github Repository</a></span></li>
                            </ul>
                         </div>
@@ -255,7 +297,163 @@
                   </div>
                   <!-- Portfolio Item End-->
                   <!-- Portfolio Item Start-->
-                  <div class="portfolio-item">
+                  <div class="portfolio-item" data-gallery-images="img/portfolio/Calculator/calculator2-portrait.png,img/portfolio/Calculator/calculator3-portrait.png,img/portfolio/Calculator/calculator4-portrait.png">
+                     <div class="portfolio-item-thumbnail">
+                        <img src="img/portfolio/Calculator/Calculator1-portrait.png" alt="portfolio item thumb">
+                     </div>
+                     <h3 class="portfolio-item-title">Calculator</h3>
+                     <button type="button" class="btn view-project-btn">View Project</button>
+                     <div class="portfolio-item-details">
+                        <div class="description">
+                           <p>A modern calculator app with a clean UI, supporting basic arithmetic operations, conversions for popular and standard units with history records of calculations.</p>
+                        </div>
+                        <div class="general-info">
+                           <ul>
+                              <li>Created - <span>05/03/2025</span></li>
+                              <li>Technology - <span>Kotlin, Material Design</span></li>
+                              <li>Role - <span>UI/UX Designer & Lead Android Developer</span></li>
+                              <li>Learn More - <span><a href="#" target="_blank">Github Repository</a></span></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- Portfolio Item End-->
+                  <!-- Portfolio Item Start-->
+                  <div class="portfolio-item" data-gallery-images="img/portfolio/Sonic/Sonic2.png,img/portfolio/Sonic/Sonic3.png,img/portfolio/Sonic/Sonic4.png">
+                     <div class="portfolio-item-thumbnail">
+                        <img src="img/portfolio/Sonic/Sonic1.png" alt="portfolio item thumb">
+                     </div>
+                     <h3 class="portfolio-item-title">Sonic</h3>
+                     <button type="button" class="btn view-project-btn">View Project</button>
+                     <div class="portfolio-item-details">
+                        <div class="description">
+                           <p>
+                              Sonic is a modern Android music player app designed for a smooth and immersive listening experience. It features playlist management, beautiful UI, album art support, and seamless playback controls. Built natively with Kotlin and Jetpack Compose for fast performance and a clean, intuitive interface.
+                           </p>
+                        </div>
+                        <div class="general-info">
+                           <ul>
+                              <li>Created - <span>20/03/2025</span></li>
+                              <li>Technology - <span>Kotlin, Jetpack Compose, Android SDK</span></li>
+                              <li>Role - <span>Android Developer & UI Designer</span></li>
+                              <li>Learn More - <span><a href="https://github.com/Code-with-UsmanG/Sonic" target="_blank">Github Repository</a></span></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- Portfolio Item End-->
+                  <!-- Portfolio Item Start-->
+                  <div class="portfolio-item" data-gallery-images="img/portfolio/UDO/UDO2.png,img/portfolio/UDO/UDO3.png,img/portfolio/UDO/UDO4.png">
+                     <div class="portfolio-item-thumbnail">
+                        <img src="img/portfolio/UDO/UDO1.png" alt="portfolio item thumb">
+                     </div>
+                     <h3 class="portfolio-item-title">UDO</h3>
+                     <button type="button" class="btn view-project-btn">View Project</button>
+                     <div class="portfolio-item-details">
+                        <div class="description">
+                           <p>It's a simple and light-weight ToDo list app which allows user to add tasks, mark them as completed, and can deleted them also. Moreover, it offers a sleek and minimilistic modern UI with Dark/Light theme functionality.</p>
+                        </div>
+                        <div class="general-info">
+                           <ul>
+                              <li>Created - <span>18/03/2025</span></li>
+                              <li>Technology - <span>Kotlin, Jetpack Compose</span></li>
+                              <li>Role - <span>Lead Developer</span></li>
+                              <li>Learn More - <span><a href="#" target="_blank">Github Repository</a></span></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- Portfolio Item End-->
+                  <!-- Portfolio Item Start-->
+                  <div class="portfolio-item" data-gallery-images="img/portfolio/TicTacToe/TicTacToe2.png,img/portfolio/TicTacToe/TicTacToe3.png,img/portfolio/TicTacToe/TicTacToe4.png">
+                     <div class="portfolio-item-thumbnail">
+                        <img src="img/portfolio/TicTacToe/TicTacToe2.png" alt="portfolio item thumb">
+                     </div>
+                     <h3 class="portfolio-item-title">Tic Tac Toe</h3>
+                     <button type="button" class="btn view-project-btn">View Project</button>
+                     <div class="portfolio-item-details">
+                        <div class="description">
+                           <p>It is developed in html/css/js as a web app and than converted to apk using WebintoApp.com such that it can run in Android as an Android app now.</p>
+                        </div>
+                        <div class="general-info">
+                           <ul>
+                              <li>Created - <span>DD/MM/YYYY</span></li>
+                              <li>Technology - <span>HTML, CSS, JS</span></li>
+                              <li>Role - <span>Lead Web & Android Developer</span></li>
+                              <li>Learn More - <span><a href="#" target="_blank">Github Repository</a></span></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- Portfolio Item End-->
+                   <!-- Portfolio Item Start-->
+                  <div class="portfolio-item" data-gallery-images="img/portfolio/spendly/Spendly2.png,img/portfolio/spendly/Spendly4.png,img/portfolio/spendly/Spendly5.png">
+                     <div class="portfolio-item-thumbnail">
+                        <img src="img/portfolio/spendly/Spendly1.png" alt="portfolio item thumb">
+                     </div>
+                     <h3 class="portfolio-item-title">Spendly</h3>
+                     <button type="button" class="btn view-project-btn">View Project</button>
+                     <div class="portfolio-item-details">
+                        <div class="description">
+                           <p>Spendly is a smart, lightweight budget tracker app designed to help users manage expenses effortlessly. It features intuitive charts, real-time tracking, and a clean UI for a seamless budgeting experience.</p>
+                        </div>
+                        <div class="general-info">
+                           <ul>
+                              <li>Created - <span>DD/MM/YYYY</span></li>
+                              <li>Technology - <span>Kotlin, Firebase</span></li>
+                              <li>Role - <span>Lead Android Developer</span></li>
+                              <li>Learn More - <span><a href="#" target="_blank">Github Repository</a></span></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- Portfolio Item End-->
+                   <!-- Portfolio Item Start-->
+                  <div class="portfolio-item" data-gallery-images="img/portfolio/Lumina/Lumina1-portrait.png,img/portfolio/UTube.png,img/portfolio/Treasure.png">
+                     <div class="portfolio-item-thumbnail">
+                        <img src="img/portfolio/Lumina/Lumina1-portrait.png" alt="portfolio item thumb">
+                     </div>
+                     <h3 class="portfolio-item-title">Ember</h3>
+                     <button type="button" class="btn view-project-btn">View Project</button>
+                     <div class="portfolio-item-details">
+                        <div class="description">
+                           <p>Description for Ember.</p>
+                        </div>
+                        <div class="general-info">
+                           <ul>
+                              <li>Created - <span>DD/MM/YYYY</span></li>
+                              <li>Technology - <span>Placeholder</span></li>
+                              <li>Role - <span>Placeholder</span></li>
+                              <li>Learn More - <span><a href="#" target="_blank">Github Repository</a></span></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- Portfolio Item End-->
+                   <!-- Portfolio Item Start-->
+                  <div class="portfolio-item" data-gallery-images="img/portfolio/ULearn/ULearn_SD-portrait.png,img/portfolio/Snappy.png,img/portfolio/Lumina/Lumina1-portrait.png">
+                     <div class="portfolio-item-thumbnail">
+                        <img src="img/portfolio/ULearn/ULearn_SD-portrait.png" alt="portfolio item thumb">
+                     </div>
+                     <h3 class="portfolio-item-title">TraceIt</h3>
+                     <button type="button" class="btn view-project-btn">View Project</button>
+                     <div class="portfolio-item-details">
+                        <div class="description">
+                           <p>Description for TraceIt.</p>
+                        </div>
+                        <div class="general-info">
+                           <ul>
+                              <li>Created - <span>DD/MM/YYYY</span></li>
+                              <li>Technology - <span>Placeholder</span></li>
+                              <li>Role - <span>Placeholder</span></li>
+                              <li>Learn More - <span><a href="#" target="_blank">Github Repository</a></span></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- Portfolio Item End-->
+                  <!-- Portfolio Item Start-->
+                  <div class="portfolio-item" data-gallery-images="img/portfolio/UTube.png,img/portfolio/Treasure.png,img/portfolio/Chess.png">
                      <div class="portfolio-item-thumbnail">
                         <img src="img/portfolio/UTube.png" alt="portfolio item thumb">
                      </div>
@@ -278,7 +476,7 @@
                   </div>
                   <!-- Portfolio Item End-->
                   <!-- Portfolio Item Start-->
-                  <div class="portfolio-item">
+                  <div class="portfolio-item" data-gallery-images="img/portfolio/Treasure.png,img/portfolio/Chess.png,img/portfolio/ULearn/ULearn_SD-portrait.png">
                      <div class="portfolio-item-thumbnail">
                         <img src="img/portfolio/Treasure.png" alt="portfolio item thumb">
                      </div>
@@ -300,7 +498,7 @@
                   </div>
                   <!-- Portfolio Item End-->
                   <!-- Portfolio Item Start-->
-                  <div class="portfolio-item">
+                  <div class="portfolio-item" data-gallery-images="img/portfolio/Chess.png,img/portfolio/ULearn/ULearn_SD-portrait.png,img/portfolio/Snappy.png">
                      <div class="portfolio-item-thumbnail">
                         <img src="img/portfolio/Chess.png" alt="portfolio item thumb">
                      </div>
@@ -327,6 +525,590 @@
             </div>
          </section>
          <!-- Portfolio Section End -->
+
+         <!-- Certifications Section Start -->
+         <section class="certifications-section sec-padding" id="certifications">
+            <div class="container">
+               <div class="row">
+                  <div class="section-title">
+                     <h2>Certifications</h2>
+                  </div>
+               </div>
+               
+               <!-- Company Tabs -->
+               <div class="company-tabs">
+                  <button type="button" class="company-tab active" data-company="ibm">
+                     <img src="IBMsb.png" alt="IBM Logo">
+                     <span>IBM</span>
+                  </button>
+                  <button type="button" class="company-tab" data-company="freecodecamp">
+                     <img src="freecodecamp.png" alt="freeCodeCamp Logo">
+                     <span>freeCodeCamp</span>
+                  </button>
+                  <button type="button" class="company-tab" data-company="google">
+                     <img src="google.png" alt="Google Logo">
+                     <span>Google</span>
+                  </button>
+                  <button type="button" class="company-tab" data-company="institute">
+                     <img src="instituteofmanagementtechnologyandfinance.png" alt="Institute Logo">
+                     <span>Institute of Management</span>
+                  </button>
+                  <button type="button" class="company-tab" data-company="airslate">
+                     <img src="airslateas.png" alt="airSlate Logo">
+                     <span>airSlate</span>
+                  </button>
+                  <button type="button" class="company-tab" data-company="forage">
+                     <img src="forage.png" alt="Forage Logo">
+                     <span>Forage</span>
+                  </button>
+                  <button type="button" class="company-tab" data-company="hp">
+                     <img src="hp1.png" alt="HP Logo">
+                     <span>HP</span>
+                  </button>
+                  <button type="button" class="company-tab" data-company="clickup">
+                     <img src="clickup.png" alt="ClickUp Logo">
+                     <span>ClickUp</span>
+                  </button>
+                  <button type="button" class="company-tab" data-company="linkedin">
+                     <img src="linkedin.png" alt="LinkedIn Logo">
+                     <span>LinkedIn</span>
+                  </button>
+               </div>
+               
+               <div class="row">
+                  <!-- IBM Certifications -->
+                  <div class="company-content active" id="ibm-certifications">
+                     <div class="company-description">
+                        <h3>IBM Certifications</h3>
+                        <p>Professional certifications from IBM, a global leader in technology and innovation.</p>
+                     </div>
+                     
+                     <!-- IBM Certification Items -->
+                     <div class="certification-item">
+                        <div class="certification-logo">
+                           <img src="IBMsb.png" alt="IBM Logo">
+                        </div>
+                        <div class="certification-details">
+                           <h3>Artificial Intelligence Fundamentals</h3>
+                           <p class="platform">IBM</p>
+                           <p class="cert-date">August 2024</p>
+                           <p class="description">Comprehensive introduction to AI concepts, machine learning algorithms, and practical applications in business.</p>
+                           <div class="cert-buttons">
+                              <a href="#" class="btn view-credential-btn">🔗 View Credential</a>
+                              <button type="button" class="btn view-certificate-btn" data-certificate="img/certifications/ArtificialIntelligenceFundamentals-IBM.png">View Certificate</button>
+                           </div>
+                        </div>
+                     </div>
+                     
+                     <div class="certification-item">
+                        <div class="certification-logo">
+                           <img src="IBMsb.png" alt="IBM Logo">
+                        </div>
+                        <div class="certification-details">
+                           <h3>Artificial Intelligence</h3>
+                           <p class="platform">IBM</p>
+                           <p class="cert-date">August 2024</p>
+                           <p class="description">Comprehensive training in AI principles, machine learning models, and practical implementation of AI solutions.</p>
+                           <div class="cert-buttons">
+                              <a href="#" class="btn view-credential-btn">🔗 View Credential</a>
+                              <button type="button" class="btn view-certificate-btn" data-certificate="img/certifications/ArtifificialIntelligence-IBM.png">View Certificate</button>
+                           </div>
+                        </div>
+                     </div>
+                     
+                     <div class="certification-item">
+                        <div class="certification-logo">
+                           <img src="IBMsb.png" alt="IBM Logo">
+                        </div>
+                        <div class="certification-details">
+                           <h3>Project Management Fundamentals</h3>
+                           <p class="platform">IBM</p>
+                           <p class="cert-date">August 2024</p>
+                           <p class="description">Mastered essential project management methodologies, tools, and best practices for successful project delivery.</p>
+                           <div class="cert-buttons">
+                              <a href="#" class="btn view-credential-btn">🔗 View Credential</a>
+                              <button type="button" class="btn view-certificate-btn" data-certificate="img/certifications/ProjectManagementFundamentals-IBM.png">View Certificate</button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <!-- freeCodeCamp Certifications -->
+                  <div class="company-content" id="freecodecamp-certifications">
+                     <div class="company-description">
+                        <h3>freeCodeCamp Certifications</h3>
+                        <p>Industry-recognized certifications in web development and programming from freeCodeCamp.</p>
+                     </div>
+                     
+                     <!-- freeCodeCamp Certification Items -->
+                     <div class="certification-item">
+                        <div class="certification-logo">
+                           <img src="freecodecamp.png" alt="freeCodeCamp Logo">
+                        </div>
+                        <div class="certification-details">
+                           <h3>Responsive Web Design</h3>
+                           <p class="platform">freeCodeCamp</p>
+                           <p class="cert-date">July 2024</p>
+                           <p class="description">Mastered modern web development, focusing on responsive layouts using HTML and CSS.</p>
+                           <div class="cert-buttons">
+                              <a href="#" class="btn view-credential-btn">🔗 View Credential</a>
+                              <button type="button" class="btn view-certificate-btn" data-certificate="img/certifications/Responsivewebdesign.png">View Certificate</button>
+                           </div>
+                        </div>
+                     </div>
+                     
+                     <div class="certification-item">
+                        <div class="certification-logo">
+                           <img src="freecodecamp.png" alt="freeCodeCamp Logo">
+                        </div>
+                        <div class="certification-details">
+                           <h3>JavaScript Algorithms and Data Structures</h3>
+                           <p class="platform">freeCodeCamp</p>
+                           <p class="cert-date">July 2024</p>
+                           <p class="description">Developed expertise in JavaScript fundamentals, ES6, and algorithmic problem-solving.</p>
+                           <div class="cert-buttons">
+                              <a href="#" class="btn view-credential-btn">🔗 View Credential</a>
+                              <button type="button" class="btn view-certificate-btn" data-certificate="img/certifications/Javascriptalgorithmsanddatastructures.png">View Certificate</button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <!-- Google Certifications -->
+                  <div class="company-content" id="google-certifications">
+                     <div class="company-description">
+                        <h3>Google Certifications</h3>
+                        <p>Professional certifications from Google's various learning platforms and academies.</p>
+                     </div>
+                     
+                     <!-- Google Certification Items -->
+                     <div class="certification-item">
+                        <div class="certification-logo">
+                           <img src="pafla.png" alt="Google Logo">
+                        </div>
+                        <div class="certification-details">
+                           <h3>Google Soft Skills Program</h3>
+                           <p class="platform">Google (PAFLA)</p>
+                           <p class="cert-date">November 2024</p>
+                           <p class="description">Comprehensive training in professional soft skills including communication, teamwork, and leadership.</p>
+                           <div class="cert-buttons">
+                              <a href="#" class="btn view-credential-btn">🔗 View Credential</a>
+                              <button type="button" class="btn view-certificate-btn" data-certificate="img/certifications/google-soft-skills-program_Google(PAFLA).png">View Certificate</button>
+                           </div>
+                        </div>
+                     </div>
+                     
+                     <div class="certification-item">
+                        <div class="certification-logo">
+                           <img src="googleanalyticsacademy.png" alt="Google Analytics Academy Logo">
+                        </div>
+                        <div class="certification-details">
+                           <h3>AI-powered AD Certification</h3>
+                           <p class="platform">Google Analytics Academy</p>
+                           <p class="cert-date">August 2024</p>
+                           <p class="description">Advanced training in AI-driven advertising strategies, optimization techniques, and analytics.</p>
+                           <div class="cert-buttons">
+                              <a href="#" class="btn view-credential-btn">🔗 View Credential</a>
+                              <button type="button" class="btn view-certificate-btn" data-certificate="img/certifications/AIpoweredADcertification-GoogleAnalyticsAcademy.png">View Certificate</button>
+                        </div>
+                     </div>
+                  </div>
+                  
+                     <div class="certification-item">
+                        <div class="certification-logo">
+                           <img src="googleanalyticsacademy.png" alt="Google Analytics Logo">
+                        </div>
+                        <div class="certification-details">
+                           <h3>Google Analytics for Beginners</h3>
+                           <p class="platform">Google Analytics Academy</p>
+                           <p class="cert-date">August 2024</p>
+                           <p class="description">Mastered fundamentals of Google Analytics including tracking code implementation, data analysis, and reporting.</p>
+                           <div class="cert-buttons">
+                              <a href="#" class="btn view-credential-btn">🔗 View Credential</a>
+                              <button type="button" class="btn view-certificate-btn" data-certificate="img/certifications/GoogleAnalyticsforBeginners-GoogleAnalyticsAcademy.png">View Certificate</button>
+                           </div>
+                        </div>
+                     </div>
+                     
+                     <div class="certification-item">
+                        <div class="certification-logo">
+                           <img src="googleplay.png" alt="Google Play Logo">
+                        </div>
+                        <div class="certification-details">
+                           <h3>Google Play Store Listing Certificate</h3>
+                           <p class="platform">Google Play Academy</p>
+                           <p class="cert-date">July 2024</p>
+                           <p class="description">Learned best practices for optimizing Google Play Store listings to improve app visibility and conversion rates.</p>
+                           <div class="cert-buttons">
+                              <a href="#" class="btn view-credential-btn">🔗 View Credential</a>
+                              <button type="button" class="btn view-certificate-btn" data-certificate="img/certifications/GooglePlayStoreListingCertificate-GooglePlayAcademy.png">View Certificate</button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  </div>
+                  
+                  <!-- LinkedIn Certifications -->
+                  <div class="company-content" id="linkedin-certifications">
+                     <div class="company-description">
+                        <h3>LinkedIn Learning Certifications</h3>
+                        <p>Professional certifications from LinkedIn's learning platform covering various technical and business skills.</p>
+                     </div>
+                     
+                     <!-- LinkedIn Certification Items -->
+                     <div class="certification-item">
+                        <div class="certification-logo">
+                           <img src="linkedin.png" alt="LinkedIn Learning Logo">
+                        </div>
+                        <div class="certification-details">
+                           <h3>Generative AI</h3>
+                           <p class="platform">LinkedIn Learning</p>
+                           <p class="cert-date">August 2025</p>
+                           <p class="description">Comprehensive training in generative AI technologies, applications, and implementation strategies.</p>
+                           <div class="cert-buttons">
+                              <a href="#" class="btn view-credential-btn">🔗 View Credential</a>
+                              <button type="button" class="btn view-certificate-btn" data-certificate="img/certifications/GenerativeAILinkedinLearning.png">View Certificate</button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <!-- ClickUp Certifications -->
+                  <div class="company-content" id="clickup-certifications">
+                     <div class="company-description">
+                        <h3>ClickUp Certifications</h3>
+                        <p>Professional certifications from the ClickUp platform, focused on productivity, project management, and workflow optimization skills.</p>
+                     </div>
+                     
+                     <!-- ClickUp Certification Items -->
+                     <div class="certification-item">
+                        <div class="certification-logo">
+                           <img src="clickup.png" alt="ClickUp Logo">
+                        </div>
+                        <div class="certification-details">
+                           <h3>ClickUp Certification (Novice)</h3>
+                           <p class="platform">ClickUp</p>
+                           <p class="cert-date">August 2025</p>
+                           <p class="description">Focused on mastering productivity tools, task management, and workflow optimization using ClickUp's platform for effective project execution.</p>
+                           <div class="cert-buttons">
+                              <a href="#" class="btn view-credential-btn">🔗 View Credential</a>
+                              <button type="button" class="btn view-certificate-btn" data-certificate="img/certifications/ClickUPCertification-ClickUp.png">View Certificate</button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <!-- hp Certifications -->
+                  <div class="company-content" id="hp-certifications">
+                     <div class="company-description">
+                        <h3>hp Certifications</h3>
+                        <p>Professional certifications from HP Life, focusing on digital skills, business fundamentals, and technology awareness for career advancement.</p>
+                     </div>
+                     
+                     <!-- hp Certification Items -->
+                     <div class="certification-item">
+                        <div class="certification-logo">
+                           <img src="hp.png" alt="hp Logo">
+                        </div>
+                        <div class="certification-details">
+                           <h3>Introduction to Cybersecurity Awareness</h3>
+                           <p class="platform">hp Life</p>
+                           <p class="cert-date">September 2025</p>
+                           <p class="description">Completed foundational training in cybersecurity, covering essential concepts, online safety, and best practices for protecting digital information.</p>
+                           <div class="cert-buttons">
+                              <a href="#" class="btn view-credential-btn">🔗 View Credential</a>
+                              <button type="button" class="btn view-certificate-btn" data-certificate="img/certifications/introductiontocybersecurity-hp.png">View Certificate</button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <!-- Forage Certifications -->
+                  <div class="company-content" id="forage-certifications">
+                     <div class="company-description">
+                        <h3>Forage Certifications</h3>
+                        <p>Professional certifications from Forage, featuring hands-on virtual job simulations with top companies to build real-world business and technical skills.</p>
+                     </div>
+                     
+                     <!-- Forage Certification Items -->
+                     <div class="certification-item">
+                        <div class="certification-logo">
+                           <img src="accenture.png" alt="accenture Logo">
+                        </div>
+                        <div class="certification-details">
+                           <h3>Data Analytics and Visualization Job Simulation</h3>
+                           <p class="platform">accenture</p>
+                           <p class="cert-date">August 2024</p>
+                           <p class="description">Completed a practical simulation with Accenture, analyzing datasets, creating visualizations, and generating actionable business insights using industry-standard tools.</p>
+                           <div class="cert-buttons">
+                              <a href="#" class="btn view-credential-btn">🔗 View Credential</a>
+                              <button type="button" class="btn view-certificate-btn" data-certificate="img/certifications/dataanalytics-Accenture(Forage).png">View Certificate</button>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="certification-item">
+                        <div class="certification-logo">
+                           <img src="goldmansachs.png" alt="goldmansachs Logo">
+                        </div>
+                        <div class="certification-details">
+                           <h3>Excel Skills for Business Job Simulation</h3>
+                           <p class="platform">Goldman Sachs</p>
+                           <p class="cert-date">August 2024</p>
+                           <p class="description">Developed advanced Excel skills by solving real business challenges, performing data analysis, and preparing reports in a Goldman Sachs virtual job simulation.</p>
+                           <div class="cert-buttons">
+                              <a href="#" class="btn view-credential-btn">🔗 View Credential</a>
+                              <button type="button" class="btn view-certificate-btn" data-certificate="img/certifications/dataanalytics-Accenture(Forage).png">View Certificate</button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <!-- Institute of Management, Technology and Finance - Certification -->
+                  <div class="company-content" id="institute-certifications">
+                     <div class="company-description">
+                        <h3>Institute of Management, Technoloy and Finance Certifications</h3>
+                        <p>Professional certifications awarded by the Institute of Management, Technology and Finance, focusing on practical skills in freelancing and advanced AI prompt engineering.</p>
+                     </div>
+                     
+                     <!-- Institute of Management, Technology and Finance Certification Items -->
+                     <div class="certification-item">
+                        <div class="certification-logo">
+                           <img src="instituteofmanagementtechnologyandfinance.png" alt="institute Logo">
+                        </div>
+                        <div class="certification-details">
+                           <h3>Freelancing Professional Certification</h3>
+                           <p class="platform">Institute of Management, Technology and Finance</p>
+                           <p class="cert-date">August 2025</p>
+                           <p class="description">Earned for mastering the essentials of freelancing, including client communication, project bidding, time management, and delivering high-quality work on global platforms.</p>
+                           <div class="cert-buttons">
+                              <a href="#" class="btn view-credential-btn">🔗 View Credential</a>
+                              <button type="button" class="btn view-certificate-btn" data-certificate="img/certifications/FreelancingProfessionalCertification-InstituteOfManagement_technology_and_finance.png">View Certificate</button>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="certification-item">
+                        <div class="certification-logo">
+                           <img src="instituteofmanagementtechnologyandfinance.png" alt="institute Logo">
+                        </div>
+                        <div class="certification-details">
+                           <h3>Prompt Engineering Professional Certification</h3>
+                           <p class="platform">Institute of Management, Technology and Finance</p>
+                           <p class="cert-date">August 2025</p>
+                           <p class="description">Focused on advanced prompt engineering techniques for generative AI, covering prompt design, optimization, and real-world application in AI-driven solutions.</p>
+                           <div class="cert-buttons">
+                              <a href="#" class="btn view-credential-btn">🔗 View Credential</a>
+                              <button type="button" class="btn view-certificate-btn" data-certificate="img/certifications/PromtEngineeringPourtugese-InstituteOfManagement_technology_and_finance.png">View Certificate</button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <!-- airSlate - Certification -->
+                  <div class="company-content" id="airslate-certifications">
+                     <div class="company-description">
+                        <h3>airSlate Certifications</h3>
+                        <p>Professional certifications from airSlate, focusing on workflow automation, analytics, and digital process optimization for modern businesses.</p>
+                     </div>
+                     
+                     <!-- airSlate Certification Items -->
+                     <div class="certification-item">
+                        <div class="certification-logo">
+                           <img src="airslateas.png" alt="airSlate Logo">
+                        </div>
+                        <div class="certification-details">
+                           <h3>airSlate WorkFlow Analytics</h3>
+                           <p class="platform">airSlate</p>
+                           <p class="cert-date">August 2025</p>
+                           <p class="description">Completed hands-on training in workflow analytics, learning to monitor, analyze, and optimize business processes using airSlate's automation platform.</p>
+                           <div class="cert-buttons">
+                              <a href="#" class="btn view-credential-btn">🔗 View Credential</a>
+                              <button type="button" class="btn view-certificate-btn" data-certificate="img/certifications/AirslateworkflowAnalytics-airSlate.png">View Certificate</button>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="certification-item">
+                        <div class="certification-logo">
+                           <img src="airslateas.png" alt="airSlate Logo">
+                        </div>
+                        <div class="certification-details">
+                           <h3>Automation in Action: Industry Use Cases</h3>
+                           <p class="platform">airSlate</p>
+                           <p class="cert-date">August 2025</p>
+                           <p class="description">Explored real-world automation scenarios, applying airSlate tools to streamline workflows and solve industry-specific business challenges.</p>
+                           <div class="cert-buttons">
+                              <a href="#" class="btn view-credential-btn">🔗 View Credential</a>
+                              <button type="button" class="btn view-certificate-btn" data-certificate="img/certifications/AutomationinactionIndustryusecases-airslate.png">View Certificate</button>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="certification-item">
+                        <div class="certification-logo">
+                           <img src="airslateas.png" alt="airSlate Logo">
+                        </div>
+                        <div class="certification-details">
+                           <h3>Business Process Automation</h3>
+                           <p class="platform">airSlate</p>
+                           <p class="cert-date">August 2025</p>
+                           <p class="description">Gained expertise in automating business processes, reducing manual tasks, and increasing efficiency using airSlate's business automation solutions.</p>
+                           <div class="cert-buttons">
+                              <a href="#" class="btn view-credential-btn">🔗 View Credential</a>
+                              <button type="button" class="btn view-certificate-btn" data-certificate="img/certifications/BusinessProcessAutomation-airSlate.png">View Certificate</button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- Certifications Section End -->
+
+         <!-- Hackathons Section Start -->
+         <section class="hackathons-section sec-padding" id="hackathons">
+            <div class="container">
+               <div class="row">
+                  <div class="section-title">
+                     <h2>Hackathons & Competitions</h2>
+                     <p class="section-subtitle">Innovative solutions created under time pressure</p>
+                  </div>
+               </div>
+               <div class="row">
+                  <!-- Hackathon Item Start -->
+                  <div class="hackathon-item">
+                     <div class="hackathon-date">
+                        <span>APR 2025</span>
+                     </div>
+                     <div class="hackathon-content">
+                        <h3>Google Solution Challenge</h3>
+                        <p class="event-details">Global Competition | Virtual</p>
+                        <div class="role-badge">Team Lead & Developer</div>
+                        <p class="description">Led a team of 4 to develop "EcoTrack", an AI-powered solution for monitoring carbon footprints. Implemented the backend using Firebase and integrated Google Maps API.</p>
+                        <div class="tech-stack">
+                           <span><i class="fab fa-android"></i> Kotlin</span>
+                           <span><i class="fas fa-fire"></i> Firebase</span>
+                           <span><i class="fas fa-brain"></i> TensorFlow Lite</span>
+                           <span><i class="fas fa-map-marked-alt"></i> Google Maps API</span>
+                        </div>
+                        <a href="#" class="btn">View Project <i class="fas fa-external-link-alt"></i></a>
+                     </div>
+                  </div>
+                  <!-- Hackathon Item End -->
+                  
+                  <!-- Hackathon Item Start -->
+                  <div class="hackathon-item">
+                     <div class="hackathon-date">
+                        <span>FEB 2025</span>
+                     </div>
+                     <div class="hackathon-content">
+                        <h3>HackNamal 2.0</h3>
+                        <p class="event-details">University Hackathon | Namal University</p>
+                        <div class="role-badge">Full-Stack Developer</div>
+                        <p class="description">Developed "StudyBuddy", an AI-powered study assistant that helps students organize notes and create personalized quizzes. Won 2nd place among 30+ teams.</p>
+                        <div class="tech-stack">
+                           <span><i class="fab fa-react"></i> React</span>
+                           <span><i class="fab fa-node-js"></i> Node.js</span>
+                           <span><i class="fas fa-database"></i> MongoDB</span>
+                           <span><i class="fas fa-robot"></i> OpenAI API</span>
+                        </div>
+                        <a href="#" class="btn">View Project <i class="fas fa-external-link-alt"></i></a>
+                     </div>
+                  </div>
+                  <!-- Hackathon Item End -->
+                  
+                  <!-- Hackathon Item Start -->
+                  <div class="hackathon-item">
+                     <div class="hackathon-date">
+                        <span>NOV 2024</span>
+                     </div>
+                     <div class="hackathon-content">
+                        <h3>IEEE Code Fusion</h3>
+                        <p class="event-details">National Competition | Lahore</p>
+                        <div class="role-badge">Backend Developer</div>
+                        <p class="description">Built "MediChain", a blockchain-based medical records system that ensures secure and transparent sharing of patient data between healthcare providers.</p>
+                        <div class="tech-stack">
+                           <span><i class="fab fa-python"></i> Python</span>
+                           <span><i class="fas fa-flask"></i> Flask</span>
+                           <span><i class="fab fa-ethereum"></i> Ethereum</span>
+                           <span><i class="fas fa-code"></i> Web3.js</span>
+                        </div>
+                        <a href="#" class="btn">View Project <i class="fas fa-external-link-alt"></i></a>
+                     </div>
+                  </div>
+                  <!-- Hackathon Item End -->
+               </div>
+            </div>
+         </section>
+         <!-- Hackathons Section End -->
+
+         <!-- Awards Section Start -->
+         <section class="awards-section sec-padding" id="awards">
+            <div class="container">
+               <div class="row">
+                  <div class="section-title">
+                     <h2>Awards & Recognition</h2>
+                     <p class="section-subtitle">Celebrating achievements and milestones</p>
+                  </div>
+               </div>
+               <div class="awards-container">
+                  <!-- Award Item Start -->
+                  <div class="award-item">
+                     <div class="award-icon">
+                        <i class="fas fa-trophy"></i>
+                     </div>
+                     <div class="award-details">
+                        <h3>Dean's Honor List</h3>
+                        <p class="award-date">2024 - 2025</p>
+                        <p class="award-org">Namal University</p>
+                        <p class="description">Recognized for maintaining a CGPA above 3.8 for two consecutive semesters.</p>
+                     </div>
+                  </div>
+                  <!-- Award Item End -->
+                  
+                  <!-- Award Item Start -->
+                  <div class="award-item">
+                     <div class="award-icon">
+                        <i class="fas fa-medal"></i>
+                     </div>
+                     <div class="award-details">
+                        <h3>2nd Place - HackNamal 2.0</h3>
+                        <p class="award-date">February 2025</p>
+                        <p class="award-org">Namal University</p>
+                        <p class="description">Won 2nd place among 30+ teams for developing "StudyBuddy", an AI-powered study assistant.</p>
+                     </div>
+                  </div>
+                  <!-- Award Item End -->
+                  
+                  <!-- Award Item Start -->
+                  <div class="award-item">
+                     <div class="award-icon">
+                        <i class="fas fa-star"></i>
+                     </div>
+                     <div class="award-details">
+                        <h3>Top 100 Contributor</h3>
+                        <p class="award-date">2024</p>
+                        <p class="award-org">GitHub Pakistan</p>
+                        <p class="description">Recognized as one of the top 100 open-source contributors from Pakistan.</p>
+                     </div>
+                  </div>
+                  <!-- Award Item End -->
+                  
+                  <!-- Award Item Start -->
+                  <div class="award-item">
+                     <div class="award-icon">
+                        <i class="fas fa-award"></i>
+                     </div>
+                     <div class="award-details">
+                        <h3>Best Android App</h3>
+                        <p class="award-date">December 2024</p>
+                        <p class="award-org">Pakistan App Awards</p>
+                        <p class="description">Awarded for developing "Lumina", an AI chatbot powered by the Gemini API.</p>
+                     </div>
+                  </div>
+                  <!-- Award Item End -->
+               </div>
+            </div>
+         </section>
+         <!-- Awards Section End -->
+
          <!-- Contact Section Start -->
          <section class="contact-section sec-padding" id="contact">
             <div class="container">
@@ -366,7 +1148,11 @@
                <div class="pp-header">
                   <button type="button" class="btn pp-close"><i class="fas fa-times"></i></button>
                   <div class="pp-thumbnail">
-                     <img src="img/portfolio/1.jpg" alt="pp-thumbnail">
+                     <div class="pp-gallery">
+                        <img src="" alt="pp-thumbnail-1">
+                        <img src="" alt="pp-thumbnail-2">
+                        <img src="" alt="pp-thumbnail-3">
+                     </div>
                   </div>
                   <h3></h3>
                </div>
@@ -375,7 +1161,21 @@
             </div>
          </div>
       </div>
-      <!-- Portfolio Item Details Popup Start -->
+      <!-- Portfolio Item Details Popup End -->
+      
+      <!-- Certificate Popup Start -->
+      <div class="certificate-popup">
+         <div class="certificate-popup-inner">
+            <div class="certificate-popup-content">
+               <div class="certificate-popup-close"><i class="fas fa-times"></i></div>
+               <div class="certificate-popup-img-container">
+                  <img src="" alt="Certificate" class="certificate-popup-img">
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- Certificate Popup End -->
+      
       <script src="js/script.js"></script>
    </body>
 </html>
