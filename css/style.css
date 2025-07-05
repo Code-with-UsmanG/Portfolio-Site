@@ -3076,30 +3076,11 @@ Awards Section
     }
 }
 
-/* Custom styles for Treasure Hunting portfolio item */ 
-.portfolio-item-thumbnail img[src*="T1.png"] {
-    width: 1000px;
-    height: 661px;
+/* Custom styles for TraceIt portfolio item */
+.portfolio-item-thumbnail img[src*="Ember1.png"] {
     object-fit: contain;
     padding: 10px;
     background-color: var(--card-bg);
-    border-radius: 12px; /* Optional: smooth edges */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Optional: modern look */
-    max-width: 100%; /* Responsive fallback */
-    height: auto;    /* Maintain aspect ratio if screen is small */
-}
-
-/* Custom styles for Treasure Hunting portfolio item */ 
-.portfolio-item-thumbnail img[src*="Chess1.png"] {
-    width: 1000px;
-    height: 661px;
-    object-fit: contain;
-    padding: 10px;
-    background-color: var(--card-bg);
-    border-radius: 12px; /* Optional: smooth edges */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Optional: modern look */
-    max-width: 100%; /* Responsive fallback */
-    height: auto;    /* Maintain aspect ratio if screen is small */
 }
 
 /* Custom styles for TraceIt portfolio item */
