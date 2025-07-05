@@ -1,7 +1,7 @@
 # 🚀 My Portfolio Website  
 
 **Author:** Usman Ghani  
-📍 **Live Demo:** [Visit My Portfolio](https://yourportfolio.com)
+📍 **Live Demo:** [Visit My Portfolio](https://code-with-usmang.github.io/Portfolio-Site/)
 
 ---
 
@@ -56,8 +56,8 @@ This project is provided **"as is"**, without any warranty of any kind. The auth
 
 ## 📞 Connect with Me  
 📧 **Email:** [usmanghanii7729@gmail.com](mailto:usmanghanii7729@gmail.com)  
-🔗 **Portfolio:** [yourportfolio.com](https://yourportfolio.com) *(Replace with your actual link)*  
+🔗 **Portfolio:** [yourportfolio.com](https://code-with-usmang.github.io/Portfolio-Site/) 
 💼 **LinkedIn:** [Usman Ghani](https://www.linkedin.com/in/usmangofficial)  
-🐙 **GitHub:** [@Code-with-UsmanG](https://github.com/Code-with-UsmanG)  
+🐙 **GitHub:** [@Code-with-UsmanG](https://github.com/Code-with-UsmanG)
 📸 **Instagram:** [@code_with_usmang](https://www.instagram.com/code_with_usmang)  
 🐦 **Twitter (X):** [@USMAANGF](https://x.com/USMAANGF)  
