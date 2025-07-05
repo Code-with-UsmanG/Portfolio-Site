@@ -370,13 +370,18 @@ document.addEventListener("click", (e) => {
 
 function portfolioItemDetails(portfolioItem) {
     const galleryImages = portfolioItem.getAttribute("data-gallery-images").split(",");
-    const ppGalleryImages = document.querySelectorAll(".pp-gallery img");
+    const galleryImgs = document.querySelectorAll(".pp-gallery img");
 
-    ppGalleryImages.forEach((img, index) => {
-        if (galleryImages[index]) {
-            img.src = galleryImages[index];
-        } else {
-            img.src = ""; // Clear image if no corresponding path is provided
+    // Hide all images first
+    galleryImgs.forEach(img => {
+        img.style.display = "none";
+    });
+
+    // Show only as many images as needed
+    galleryImages.forEach((src, idx) => {
+        if (galleryImgs[idx]) {
+            galleryImgs[idx].src = src.trim();
+            galleryImgs[idx].style.display = "block";
         }
     });
 

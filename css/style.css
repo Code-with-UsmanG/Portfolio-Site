@@ -3077,7 +3077,14 @@ Awards Section
     }
 }
 
-/* Custom styles for UDO portfolio item */
+/* Custom styles for TraceIt portfolio item */
+.portfolio-item-thumbnail img[src*="TraceIt1.png"] {
+    object-fit: contain;
+    padding: 10px;
+    background-color: var(--card-bg);
+}
+
+/* Custom styles for TicTacToe portfolio item */
 .portfolio-item-thumbnail img[src*="TicTacToe2.png"] {
     object-fit: contain;
     padding: 10px;
