@@ -1260,6 +1260,7 @@ Portfolio Section
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 6px var(--shadow-color);
     overflow: hidden;
+    position: relative;
 }
 
 .portfolio-item-thumbnail:hover {
@@ -2913,8 +2914,6 @@ Awards Section
     margin-right: 20px;
 }
 
-
-
 .home-buttons .btn:first-child::before {
     background-color: var(--white);
 }
@@ -3077,6 +3076,32 @@ Awards Section
     }
 }
 
+/* Custom styles for Treasure Hunting portfolio item */ 
+.portfolio-item-thumbnail img[src*="T1.png"] {
+    width: 1000px;
+    height: 661px;
+    object-fit: contain;
+    padding: 10px;
+    background-color: var(--card-bg);
+    border-radius: 12px; /* Optional: smooth edges */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Optional: modern look */
+    max-width: 100%; /* Responsive fallback */
+    height: auto;    /* Maintain aspect ratio if screen is small */
+}
+
+/* Custom styles for Treasure Hunting portfolio item */ 
+.portfolio-item-thumbnail img[src*="Chess1.png"] {
+    width: 1000px;
+    height: 661px;
+    object-fit: contain;
+    padding: 10px;
+    background-color: var(--card-bg);
+    border-radius: 12px; /* Optional: smooth edges */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Optional: modern look */
+    max-width: 100%; /* Responsive fallback */
+    height: auto;    /* Maintain aspect ratio if screen is small */
+}
+
 /* Custom styles for TraceIt portfolio item */
 .portfolio-item-thumbnail img[src*="TraceIt1.png"] {
     object-fit: contain;
@@ -3129,5 +3154,91 @@ Awards Section
         width: 100%;
         height: 100%;
         margin-bottom: 0;
+    }
+}
+
+/* Featured Badge Styling */
+.featured-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: linear-gradient(90deg, var(--main-color), var(--accent));
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 6px 16px 6px 12px;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    z-index: 2;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    border: 1.5px solid #fff;
+    animation: badgePop 0.7s cubic-bezier(0.4,0,0.2,1);
+}
+
+.featured-badge i {
+    color: #ffd700;
+    font-size: 16px;
+    margin-right: 4px;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.12));
+    animation: badgeStar 1.5s infinite alternate;
+}
+
+@keyframes badgePop {
+    0% { transform: scale(0.7); opacity: 0; }
+    70% { transform: scale(1.15); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+@keyframes badgeStar {
+    0% { transform: rotate(-10deg) scale(1); }
+    100% { transform: rotate(10deg) scale(1.15); }
+}
+
+/* Responsive for badge */
+@media (max-width: 575px) {
+    .featured-badge {
+        font-size: 12px;
+        padding: 5px 12px 5px 10px;
+        top: 8px;
+        left: 8px;
+    }
+    .featured-badge i {
+        font-size: 13px;
+    }
+}
+
+/* Project Badge Styling (for all except featured) */
+.project-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--card-bg);
+    color: var(--main-color);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 5px 14px 5px 10px;
+    border-radius: 18px;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    z-index: 2;
+    letter-spacing: 0.2px;
+    border: 1.5px solid var(--main-color);
+    opacity: 0.95;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    pointer-events: none;
+}
+
+@media (max-width: 575px) {
+    .project-badge {
+        font-size: 11px;
+        padding: 4px 10px 4px 8px;
+        top: 7px;
+        left: 7px;
     }
 }
