@@ -1907,6 +1907,27 @@ Certifications Section
 	}
 }
 
+@media screen and (min-width: 768px) {
+    .portfolio-popup.landscape-popup .pp-content {
+        max-width: 1000px;
+    }
+
+    .portfolio-popup.landscape-popup .pp-gallery {
+        flex-direction: column;
+    }
+
+    .portfolio-popup.landscape-popup .pp-gallery img {
+        width: 100%;
+        height: auto;
+    }
+
+    .portfolio-popup.landscape-popup .pp-gallery img:not(:last-child) {
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--section-border);
+    }
+}
+
 @media(max-width:767px) {
 	.company-tabs {
 		display: flex;

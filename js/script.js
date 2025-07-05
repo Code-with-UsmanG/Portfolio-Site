@@ -369,6 +369,16 @@ document.addEventListener("click", (e) => {
 
 
 function portfolioItemDetails(portfolioItem) {
+    const projectTitle = portfolioItem.querySelector(".portfolio-item-title").innerHTML;
+    const popup = document.querySelector(".portfolio-popup");
+    const landscapeProjects = ["TimSort Algorithm Simulator", "UTUBE Downloader", "Treasure Hunting Game", "Chess Game"];
+
+    if (landscapeProjects.includes(projectTitle)) {
+        popup.classList.add("landscape-popup");
+    } else {
+        popup.classList.remove("landscape-popup");
+    }
+
     const galleryImages = portfolioItem.getAttribute("data-gallery-images").split(",");
     const galleryImgs = document.querySelectorAll(".pp-gallery img");
 
@@ -386,7 +396,7 @@ function portfolioItemDetails(portfolioItem) {
     });
 
     document.querySelector(".pp-header h3").innerHTML =
-        portfolioItem.querySelector(".portfolio-item-title").innerHTML;
+        projectTitle;
 
     document.querySelector(".pp-body").innerHTML =
         portfolioItem.querySelector(".portfolio-item-details").innerHTML;
