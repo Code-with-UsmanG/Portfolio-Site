@@ -402,7 +402,7 @@ function portfolioItemDetails(portfolioItem) {
         portfolioItem.querySelector(".portfolio-item-details").innerHTML;
 }
 
-/* -------------- Animation on Scroll for Hackathons and Awards ----------------------- */
+/* -------------- Animation on Scroll for Awards ----------------------- */
 document.addEventListener("DOMContentLoaded", function() {
     // Function to check if element is in viewport
     function isInViewport(element) {
@@ -417,15 +417,6 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // Function to handle scroll animations
     function handleScrollAnimations() {
-        // For hackathon items
-        const hackathonItems = document.querySelectorAll('.hackathon-item');
-        hackathonItems.forEach((item, index) => {
-            if (isInViewport(item)) {
-                item.style.animationDelay = `${0.1 * (index + 1)}s`;
-                item.style.animationPlayState = 'running';
-            }
-        });
-        
         // For award items
         const awardItems = document.querySelectorAll('.award-item');
         awardItems.forEach((item, index) => {
