@@ -371,7 +371,7 @@ document.addEventListener("click", (e) => {
 function portfolioItemDetails(portfolioItem) {
     const projectTitle = portfolioItem.querySelector(".portfolio-item-title").innerHTML;
     const popup = document.querySelector(".portfolio-popup");
-    const landscapeProjects = ["TimSort Algorithm Simulator", "UTUBE Downloader", "Treasure Hunting Game", "Chess Game"];
+    const landscapeProjects = ["TimSort Algorithm Simulator", "TubeDown", "Treasure Hunting Game", "Chess Game"];
 
     if (landscapeProjects.includes(projectTitle)) {
         popup.classList.add("landscape-popup");
