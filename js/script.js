@@ -172,8 +172,8 @@ const dynamicTextElement = document.querySelector(".dynamic-text .text-content")
 const texts = [
     "Computer Scientist' 2027",
     "Android Developer",
-    "AI Enthusiast",
-    "Full-Stack Developer"
+    "Flutter Developer",
+    "Google Play Store Contributor",
 ];
 let textIndex = 0;
 let charIndex = 0;
