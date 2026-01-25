@@ -56,7 +56,7 @@ This project is provided **"as is"**, without any warranty of any kind. The auth
 
 ## 📞 Connect with Me  
 📧 **Email:** [usmanghanii7729@gmail.com](mailto:usmanghanii7729@gmail.com)  
-🔗 **Portfolio:** [yourportfolio.com](https://code-with-usmang.github.io/Portfolio-Site/) 
+🔗 **Portfolio:** [Portfolio.com](https://code-with-usmang.github.io/Portfolio-Site/) 
 💼 **LinkedIn:** [Usman Ghani](https://www.linkedin.com/in/usmangofficial)  
 🐙 **GitHub:** [@Code-with-UsmanG](https://github.com/Code-with-UsmanG)
 📸 **Instagram:** [@code_with_usmang](https://www.instagram.com/code_with_usmang)  
