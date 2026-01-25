@@ -43,7 +43,11 @@ document.addEventListener("DOMContentLoaded", function() {
                         if (currentSection) {
                             currentSection.classList.remove("active", "fade-out");
                         }
-                        // Add active class to target section
+                        if (targetSection.dataset.visited === "true") {
+                            targetSection.classList.add("no-animate");
+                        } else {
+                            targetSection.dataset.visited = "true";
+                        }
                         targetSection.classList.add("active");
                         // Scroll to top
                         window.scrollTo({
@@ -83,6 +87,11 @@ document.addEventListener("DOMContentLoaded", function() {
                         }
                         
                         // Add active class to target section
+                        if (targetSection.dataset.visited === "true") {
+                            targetSection.classList.add("no-animate");
+                        } else {
+                            targetSection.dataset.visited = "true";
+                        }
                         targetSection.classList.add("active");
                         
                         // Scroll to top
@@ -131,6 +140,11 @@ document.addEventListener("DOMContentLoaded", function() {
                             }
                             
                             // Add active class to target section
+                            if (targetSection.dataset.visited === "true") {
+                                targetSection.classList.add("no-animate");
+                            } else {
+                                targetSection.dataset.visited = "true";
+                            }
                             targetSection.classList.add("active");
                             
                             // Scroll to top
@@ -323,7 +337,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     certificatePopupContent.innerHTML = `
                         <div class="certificate-popup-close"><i class="fas fa-times"></i></div>
                         <div class="certificate-popup-img-container">
-                            <img src="${certificatePath}" alt="Certificate" class="certificate-popup-img">
+                            <img src="${certificatePath}" alt="Certificate" class="certificate-popup-img" decoding="async">
                         </div>
                     `;
                 }
@@ -432,6 +446,57 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // Initial check
     setTimeout(handleScrollAnimations, 300);
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const items = document.querySelectorAll('.portfolio-item');
+    if (!('IntersectionObserver' in window)) return;
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const attr = el.getAttribute('data-gallery-images');
+                if (attr) {
+                    const urls = attr.split(',').map(s => s.trim());
+                    urls.forEach(u => {
+                        const link = document.createElement('link');
+                        link.rel = 'prefetch';
+                        link.as = 'image';
+                        link.href = u;
+                        document.head.appendChild(link);
+                    });
+                }
+                observer.unobserve(el);
+            }
+        });
+    }, { root: null, rootMargin: '200px', threshold: 0 });
+    items.forEach(item => observer.observe(item));
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const holder = document.createElement('div');
+    holder.id = 'img-cache-holder';
+    holder.style.position = 'absolute';
+    holder.style.width = '1px';
+    holder.style.height = '1px';
+    holder.style.overflow = 'hidden';
+    holder.style.pointerEvents = 'none';
+    holder.style.opacity = '0';
+    document.body.appendChild(holder);
+    const seen = new Set();
+    function retain(img) {
+        const src = img.currentSrc || img.src;
+        if (!src || seen.has(src)) return;
+        const c = new Image();
+        c.src = src;
+        holder.appendChild(c);
+        seen.add(src);
+    }
+    const imgs = document.querySelectorAll('img');
+    imgs.forEach(i => {
+        if (i.complete) retain(i);
+        i.addEventListener('load', function() { retain(i); });
+    });
 });
 
 /* -------------- Dark Mode Toggle ----------------------- */

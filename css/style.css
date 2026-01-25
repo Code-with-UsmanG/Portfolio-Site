@@ -191,6 +191,9 @@ section.active {
 	display: block;
 	animation: fadeIn 0.7s cubic-bezier(0.4,0,0.2,1) forwards;
 }
+section.no-animate.active {
+	animation: none;
+}
 
 section.fade-out {
 	animation: fadeOut 0.7s cubic-bezier(0.4,0,0.2,1) forwards;
