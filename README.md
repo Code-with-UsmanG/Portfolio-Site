@@ -1,30 +1,29 @@
 # 🚀 My Portfolio Website  
 
 **Author:** Usman Ghani  
-📍 **Live Demo:** [Visit My Portfolio](https://code-with-usmang.github.io/Portfolio-Site/)
-[![Portfolio Website](https://img.shields.io/badge/Portfolio-Live-brightgreen)](https://Code-with-UsmanG.github.io/Portfolio-Site/)
-
+📍 **Live Demo:** [Visit My Portfolio](https://code-with-usmang.github.io/Portfolio-Site/)  
+[![Portfolio Website](https://img.shields.io/badge/Portfolio-Live-brightgreen)](https://code-with-usmang.github.io/Portfolio-Site/)
 
 ---
 
 ## 📌 About the Project  
-This is my **Personal Portfolio Website** showcasing my skills, projects, and experience as a **Developer & AI Enthusiast**. It serves as a **Professional Profile** for recruiters, clients, and fellow developers to explore my work.
+This is my **Personal Portfolio Website** showcasing my skills, projects, and experience as a **Developer & AI Enthusiast**. It serves as a **professional profile** for recruiters, clients, and fellow developers to explore my work.
 
 ---
 
 ## 🛠 Tech Stack  
-- ✅ **Frontend:** HTML, CSS, JavaScript  
-- ✅ **Styling:** Vanilla CSS (Custom-designed with global variables and media queries)  
-- ✅ **Animations:** Custom CSS Animations.
-- ✅ **Hosting:** GitHub Pages.
+- **Frontend:** HTML, CSS, JavaScript  
+- **Styling:** Vanilla CSS (Custom-designed with global variables and media queries)  
+- **Animations:** Smooth custom CSS animations  
+- **Hosting:** GitHub Pages
 
 ---
 
 ## 📂 Features  
-✔️ **Modern & Responsive UI** – Mobile-friendly and visually appealing design.  
-✔️ **Smooth Animations** – Enhancing user experience.  
-✔️ **Showcased Projects** – Featuring my top projects with descriptions and live demos.  
-✔️ **Contact Section** – Easy way for visitors to reach out.  
+- ✅ **Modern & Responsive UI** – Mobile-friendly, visually appealing, and sleek design  
+- ✅ **Smooth Animations** – Enhances user experience without being flashy  
+- ✅ **Showcased Projects** – Highlighting top projects with descriptions and live demos  
+- ✅ **Contact Section** – Easy way for visitors to reach out  
 
 ---
 
@@ -34,27 +33,27 @@ This is my **Personal Portfolio Website** showcasing my skills, projects, and ex
 
 This portfolio website and its source code are **owned by Usman Ghani**.  
 
-### ✅ Permitted Use:  
-- You **can** use the code for **personal or educational** purposes.  
-- You **can** modify and adapt the project for your own use.  
-- You **must** **make significant changes** before distributing or publishing a modified version.  
+### ✅ Permitted Use  
+- Personal or educational purposes  
+- Modification and adaptation for your own projects  
+- Significant changes required before distributing or publishing a modified version  
 
-### ❌ Restrictions:  
-- You **cannot** use this code for **commercial purposes** without **explicit permission** from the author.  
-- You **cannot** re-upload or distribute an **unmodified** or **slightly modified** version of this project.  
-- You **must** **credit the original author (Usman Ghani)** if you share a modified version publicly.  
+### ❌ Restrictions  
+- Commercial use without **explicit permission** from the author  
+- Re-uploading or distributing **unmodified** or **slightly modified** versions  
+- Must **credit the original author** when sharing a modified version  
 
-### ⚖️ Legal Disclaimer:  
-This project is provided **"as is"**, without any warranty of any kind. The author is **not responsible** for any issues arising from the use of this code.  
+### ⚖️ Disclaimer  
+This project is provided **"as-is"**, without any warranty. The author is **not responsible** for any issues arising from its use.  
 
-🚀 For **permissions beyond these terms**, contact **[usmanghanii7729@gmail.com](mailto:usmanghanii7729@gmail.com)**.
+> For permissions beyond these terms, contact: **[usmanghanii7729@gmail.com](mailto:usmanghanii7729@gmail.com)**
 
 ---
 
 ## 📞 Connect with Me  
-📧 **Email:** [usmanghanii7729@gmail.com](mailto:usmanghanii7729@gmail.com)  
-🔗 **Portfolio:** [Portfolio.com](https://code-with-usmang.github.io/Portfolio-Site/) 
-💼 **LinkedIn:** [Usman Ghani](https://www.linkedin.com/in/usmanghanics/)  
-🐙 **GitHub:** [@Code-with-UsmanG](https://github.com/Code-with-UsmanG)
-📸 **Instagram:** [@code_with_usmang](https://www.instagram.com/code_with_usmang)  
-🐦 **Twitter (X):** [@USMAANGF](https://x.com/USMAANGF)  
+- 📧 **Email:** [usmanghanii7729@gmail.com](mailto:usmanghanii7729@gmail.com)  
+- 🔗 **Portfolio:** [https://code-with-usmang.github.io/Portfolio-Site/](https://code-with-usmang.github.io/Portfolio-Site/)  
+- 💼 **LinkedIn:** [Usman Ghani](https://www.linkedin.com/in/usmanghanics/)  
+- 🐙 **GitHub:** [@Code-with-UsmanG](https://github.com/Code-with-UsmanG)  
+- 📸 **Instagram:** [@code_with_usmang](https://www.instagram.com/code_with_usmang)  
+- 🐦 **Twitter (X):** [@USMAANGF](https://x.com/USMAANGF)
