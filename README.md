@@ -2,6 +2,8 @@
 
 **Author:** Usman Ghani  
 📍 **Live Demo:** [Visit My Portfolio](https://code-with-usmang.github.io/Portfolio-Site/)
+[![Portfolio Website](https://img.shields.io/badge/Portfolio-Live-brightgreen)](https://Code-with-UsmanG.github.io/Portfolio-Site/)
+
 
 ---
 
