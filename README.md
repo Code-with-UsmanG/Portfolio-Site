@@ -26,11 +26,6 @@ This is my **Personal Portfolio Website** showcasing my skills, projects, and ex
 
 ---
 
-## 🌍 Deployment  
-This portfolio is hosted using **GitHub Pages**.
-
----
-
 ## 📜 License  
 
 **Copyright (C) 2025 Usman Ghani**  
