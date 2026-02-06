@@ -1329,6 +1329,12 @@ Portfolio Section
     transition: transform 0.5s ease;
 }
 
+.portfolio-item-thumbnail[data-orientation="portrait"] img {
+    object-fit: contain;
+    padding: 10px;
+    background-color: var(--card-bg);
+}
+
 /* Special styling for Lumina portrait image */
 .portfolio-item-thumbnail img[src*="Lumina1-portrait.png"] {
     object-fit: contain; /* Show the whole image without cropping */
