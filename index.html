@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Moved • Usman Ghanics</title>
+    <meta
+      name="description"
+      content="This page has moved to a new portfolio site. You will be redirected automatically."
+    />
+    <meta http-equiv="refresh" content="2; url=https://usmanghanics.netlify.app" />
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #09090d;
+        --surface: rgba(255, 255, 255, 0.04);
+        --border: rgba(255, 255, 255, 0.12);
+        --text: rgba(255, 255, 255, 0.92);
+        --muted: rgba(255, 255, 255, 0.72);
+        --accent: #ff3ea5;
+        --accent-soft: rgba(255, 62, 165, 0.2);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+          Apple Color Emoji, Segoe UI Emoji;
+        background: var(--bg);
+        color: var(--text);
+        display: grid;
+        place-items: center;
+        padding: 24px;
+      }
+
+      .card {
+        width: min(560px, 100%);
+        border: 1px solid var(--border);
+        background: var(--surface);
+        border-radius: 16px;
+        padding: 28px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
+      }
+
+      h1 {
+        margin: 0 0 10px;
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 0.2px;
+      }
+
+      p {
+        margin: 0 0 18px;
+        color: var(--muted);
+        line-height: 1.55;
+        font-size: 14px;
+      }
+
+      .actions {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      a.button {
+        appearance: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 44px;
+        padding: 0 16px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 62, 165, 0.45);
+        background: var(--accent-soft);
+        color: var(--text);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+      }
+
+      a.button:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+      }
+
+      a.button:hover {
+        background: rgba(255, 62, 165, 0.26);
+        border-color: rgba(255, 62, 165, 0.62);
+      }
+
+      a.button:active {
+        transform: translateY(1px);
+      }
+
+      .link {
+        color: rgba(255, 255, 255, 0.84);
+        text-decoration: none;
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.28);
+        padding-bottom: 2px;
+        font-size: 14px;
+      }
+
+      .link:hover {
+        border-bottom-color: rgba(255, 255, 255, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card" role="main" aria-label="Site moved notice">
+      <h1>This site has moved</h1>
+      <p>
+        Redirecting you to the new portfolio. If the redirect doesn’t start, use the button below.
+      </p>
+      <div class="actions">
+        <a
+          class="button"
+          href="https://usmanghanics.netlify.app"
+          target="_self"
+          rel="noopener noreferrer"
+        >
+          Go to new portfolio
+        </a>
+        <a class="link" href="https://usmanghanics.netlify.app" target="_self" rel="noopener noreferrer">
+          https://usmanghanics.netlify.app
+        </a>
+      </div>
+      <noscript>
+        <p style="margin-top: 16px">
+          JavaScript is disabled. Use the button above to open the new portfolio.
+        </p>
+      </noscript>
+    </main>
+
+    <script>
+      window.setTimeout(() => {
+        window.location.replace("https://usmanghanics.netlify.app");
+      }, 800);
+    </script>
+  </body>
+</html>
